@@ -40,6 +40,12 @@ class App extends React.Component {
     });
 
   }
+
+  //task is an object containing title and id
+  addTask = (task) => {
+    console.log("inside addTask")
+    this.setState( { tasks: [...this.state.tasks,task]})
+  } 
   
   render(){
     let tasks = {
@@ -73,6 +79,7 @@ class App extends React.Component {
              tasks={tasks} 
              onDragOver={this.onDragOver}
              onDrop={this.onDrop}
+             addTask={this.addTask}
              />
              )
           }
