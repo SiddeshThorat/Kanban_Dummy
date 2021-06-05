@@ -2,17 +2,13 @@ import React from 'react';
 import './App.css';
 import TaskBlockComponent from './Components/TaskBlock/TaskBlock.component';
 
+const URL = "https://my-json-server.typicode.com/SiddeshThorat/DummyServerForKanban/tasks"
+
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      tasks: [
-        {title: 'Test 1',id:'icebox'},
-        {title: 'Test 2',id:'pending'},
-        {title: 'Test 3',id:'wip'},
-        {title: 'Test 4',id:'review'},
-        {title: 'Test 5',id:'done'}
-      ]
+      tasks: []
     }
   }
 
@@ -20,17 +16,15 @@ class App extends React.Component {
     event.preventDefault();
   }
 
-  //ASSUMED TITLE TO BE UNIQUE
-  onDragStart = (event,id) => {
-     event.dataTransfer.setData("id",id);
-     console.log();
+  onDragStart = (event,category) => {
+     event.dataTransfer.setData("category",category);
   }
 
-  onDrop = (event,categoryId) => {
-    let id = event.dataTransfer.getData("id");
+  onDrop = (event,category) => {
+    let id = event.dataTransfer.getData("category");
     let tasks = this.state.tasks.filter(task => {
       if(task.title === id){
-        task.id = categoryId
+        task.category = category
       }
       return task;
     });
@@ -41,13 +35,40 @@ class App extends React.Component {
 
   }
 
-  //task is an object containing title and id
   addTask = (task) => {
-    console.log("inside addTask")
-    this.setState( { tasks: [...this.state.tasks,task]})
-  } 
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        },
+      body: JSON.stringify({ id: task.id,title: task.title,category: task.category})
+    })
+    .then(data => {
+      if (!data.ok) {
+        throw Error(data.status);
+       }
+       return data.json();
+    })
+    .then(newTask => {
+      this.setState({
+        tasks : [...this.state.tasks,newTask]
+      })
+    })
+    .catch(e => {
+    console.log(e);
+    });
+
+  }
   
-  render(){
+  componentDidMount(){
+    fetch(URL)
+    .then(res => res.json())
+    .then(data =>
+       this.setState({tasks :data}) 
+      );
+  }
+  
+  render(){ 
     let tasks = {
       icebox: [],
       pending: [],
@@ -56,8 +77,8 @@ class App extends React.Component {
       done: []
     }
 
-    this.state.tasks.forEach(task => {
-      tasks[task.id].push(
+    this.state.tasks && this.state.tasks.forEach(task => {
+      tasks[task.category].push(
         <div
         key={task.title}
         onDragStart= { (event) => this.onDragStart(event,task.title)} 
@@ -68,14 +89,14 @@ class App extends React.Component {
         </div>
       )
     })
-  
+    
     return (
       <div className="app">
         <div className="mainContainer">
           {
            Object.keys(tasks).map(
              item => <TaskBlockComponent 
-             id={item} 
+             category={item} 
              tasks={tasks} 
              onDragOver={this.onDragOver}
              onDrop={this.onDrop}
