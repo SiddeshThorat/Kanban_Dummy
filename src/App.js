@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Header from './Components/Header/Header.component';
 
 class App extends React.Component {
   constructor(props){
@@ -72,15 +73,16 @@ class App extends React.Component {
           onDragOver = {event => this.onDragOver(event)}
           onDrop ={event => this.onDrop(event,"icebox")}
           >
-            <span >iceBox</span>
+            <Header>IceBox</Header>
             {tasks.icebox}
+            
           </div>
           <div 
           className="container"
           onDragOver = {event => this.onDragOver(event)}
           onDrop ={event => this.onDrop(event,"pending")}
           >
-            <span >Pending</span>
+            <Header>Pending</Header>
             {tasks.pending}
           </div>
           <div 
@@ -88,7 +90,7 @@ class App extends React.Component {
           onDragOver = {event => this.onDragOver(event)}
           onDrop ={event => this.onDrop(event,"wip")}
           >
-            <span >WIP</span>
+            <Header>WIP</Header>
             {tasks.wip}
           </div>
           <div 
@@ -96,7 +98,7 @@ class App extends React.Component {
           onDragOver = {event => this.onDragOver(event)}
           onDrop ={event => this.onDrop(event,"review")}
           >
-            <span >Review</span>
+            <Header>Review</Header>
             {tasks.review}
           </div>
           <div 
@@ -104,7 +106,7 @@ class App extends React.Component {
           onDragOver = {event => this.onDragOver(event)}
           onDrop ={event => this.onDrop(event,"done")}
           >
-            <span >Done</span>
+            <Header>Done</Header>
             {tasks.done}
           </div>
         </div>      
