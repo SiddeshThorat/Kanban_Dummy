@@ -1,0 +1,8 @@
+.draggable{
+	width: 200px;
+	background-color: rgb(163, 163, 195);
+	margin: 5px auto;
+	line-height: 4em;
+	border-radius: 0 25px 25px 25px;
+	font-size:15px;
+}
