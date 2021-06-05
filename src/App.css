@@ -14,3 +14,11 @@ background-color:rgb(235, 235, 235) ;
 margin: 5px;
 border-radius: 20px;
 }
+
+.draggable{
+	width: 100px;
+	height: 100px;
+	background-color: blue;
+	margin: 5px auto;
+	line-height: 5em;
+}
