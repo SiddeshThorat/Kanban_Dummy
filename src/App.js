@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header.component';
+import TaskBlockComponent from './Components/TaskBlock/TaskBlock.component';
 
 class App extends React.Component {
   constructor(props){
@@ -28,14 +28,12 @@ class App extends React.Component {
 
   onDrop = (event,categoryId) => {
     let id = event.dataTransfer.getData("id");
-
     let tasks = this.state.tasks.filter(task => {
       if(task.title === id){
         task.id = categoryId
       }
       return task;
     });
-
     this.setState({
       ...this.state,
       tasks
@@ -64,51 +62,20 @@ class App extends React.Component {
         </div>
       )
     })
-
+  
     return (
       <div className="app">
         <div className="mainContainer">
-          <div 
-          className="container"
-          onDragOver = {event => this.onDragOver(event)}
-          onDrop ={event => this.onDrop(event,"icebox")}
-          >
-            <Header>IceBox</Header>
-            {tasks.icebox}
-            
-          </div>
-          <div 
-          className="container"
-          onDragOver = {event => this.onDragOver(event)}
-          onDrop ={event => this.onDrop(event,"pending")}
-          >
-            <Header>Pending</Header>
-            {tasks.pending}
-          </div>
-          <div 
-          className="container"
-          onDragOver = {event => this.onDragOver(event)}
-          onDrop ={event => this.onDrop(event,"wip")}
-          >
-            <Header>WIP</Header>
-            {tasks.wip}
-          </div>
-          <div 
-          className="container"
-          onDragOver = {event => this.onDragOver(event)}
-          onDrop ={event => this.onDrop(event,"review")}
-          >
-            <Header>Review</Header>
-            {tasks.review}
-          </div>
-          <div 
-          className="container"
-          onDragOver = {event => this.onDragOver(event)}
-          onDrop ={event => this.onDrop(event,"done")}
-          >
-            <Header>Done</Header>
-            {tasks.done}
-          </div>
+          {
+           Object.keys(tasks).map(
+             item => <TaskBlockComponent 
+             id={item} 
+             tasks={tasks} 
+             onDragOver={this.onDragOver}
+             onDrop={this.onDrop}
+             />
+             )
+          }
         </div>      
       </div>
     );
