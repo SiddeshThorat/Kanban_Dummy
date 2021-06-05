@@ -8,10 +8,11 @@ const TaskBlockComponent = ({category,tasks,onDragOver,onDrop,addTask}) => {
           className="container"
           onDragOver = {event => onDragOver(event)}
           onDrop ={event => onDrop(event,category)}
-          
           >
             <Header>{category}</Header>
-            {tasks[category]}
+            <div className="containerForDraggable">
+              {tasks[category]}
+            </div>
             <InputField addTask={(task) => addTask(task)} category={category}/>
         </div>)
 }

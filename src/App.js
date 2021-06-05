@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
+import DraggableComponent from './Components/DraggableComponent/DraggableComponent.component';
 import TaskBlockComponent from './Components/TaskBlock/TaskBlock.component';
-
-const URL = "https://my-json-server.typicode.com/SiddeshThorat/DummyServerForKanban/tasks"
+import { URL } from './Constants/url';
 
 class App extends React.Component {
   constructor(props){
@@ -68,7 +68,12 @@ class App extends React.Component {
       );
   }
   
-  render(){ 
+  editTask = (updatedTask)=> {
+    const taskArray = this.state.tasks.filter(task => task.id !== updatedTask.id)
+    this.setState({ tasks: [...taskArray,updatedTask]})
+  }
+
+  render(){
     let tasks = {
       icebox: [],
       pending: [],
@@ -79,14 +84,12 @@ class App extends React.Component {
 
     this.state.tasks && this.state.tasks.forEach(task => {
       tasks[task.category].push(
-        <div
-        key={task.title}
-        onDragStart= { (event) => this.onDragStart(event,task.title)} 
-        draggable
-        className="draggable"
-        >
-          {task.title}
-        </div>
+        <DraggableComponent
+        key={task.id} 
+        task={task}
+        onDragStart={(event,title) => this.onDragStart(event,title)}
+        editTask={(task) => this.editTask(task)}
+        />
       )
     })
     
@@ -95,7 +98,8 @@ class App extends React.Component {
         <div className="mainContainer">
           {
            Object.keys(tasks).map(
-             item => <TaskBlockComponent 
+             item => <TaskBlockComponent
+             key={item.id}
              category={item} 
              tasks={tasks} 
              onDragOver={this.onDragOver}

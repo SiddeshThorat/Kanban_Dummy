@@ -6,3 +6,10 @@
     border-radius: 20px;
     position:relative;
 }
+.containerForDraggable{
+    margin: 10px 0px;
+    height: 350px;
+    background-color:white;
+    border-radius: 25px;
+    overflow-y: scroll;
+}
