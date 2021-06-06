@@ -1,15 +1,11 @@
-.container{
-    flex:1;
-    height: 500px;
-    background-color:rgb(235, 235, 235) ;
+.containerIcebox,
+.containerReview,
+.containerPending,
+.containerWip,
+.containerDone  {
+    background-color:white ;
     margin: 5px;
     border-radius: 20px;
-    position:relative;
-}
-.containerForDraggable{
-    margin: 10px 0px;
-    height: 350px;
-    background-color:white;
-    border-radius: 25px;
-    overflow-y: scroll;
+    position: relative;
+    flex:1;
 }
