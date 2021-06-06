@@ -3,6 +3,7 @@ import './App.css';
 import DraggableComponent from './Components/DraggableComponent/DraggableComponent.component';
 import TaskBlockComponent from './Components/TaskBlock/TaskBlock.component';
 import ErrorBoundaries from './Components/Error-Boundaries/ErrorBoundaries.component';
+import Spinner from './Components/Spinner/Spinner.component';
 import { URL } from './Constants/url';
 
 class App extends React.Component {
@@ -97,20 +98,21 @@ class App extends React.Component {
     return (
       <div className="app">
         <ErrorBoundaries>
-        <div className="mainContainer">
-          {
-           Object.keys(tasks).map(
-             item => <TaskBlockComponent
-             key={item.id}
-             category={item} 
-             tasks={tasks} 
-             onDragOver={this.onDragOver}
-             onDrop={this.onDrop}
-             addTask={this.addTask}
-             />
-             )
-          }
-        </div>   
+          <div className="mainContainer">
+            {
+            this.state.tasks.length ?  Object.keys(tasks).map(
+              item => (
+                <TaskBlockComponent
+                key={item.id}
+                category={item} 
+                tasks={tasks} 
+                onDragOver={this.onDragOver}
+                onDrop={this.onDrop}
+                addTask={this.addTask}
+                />)
+              ) : <Spinner />
+            }
+          </div>   
         </ErrorBoundaries>   
       </div>
     );
