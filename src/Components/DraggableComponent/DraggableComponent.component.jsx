@@ -31,28 +31,33 @@ const DraggableComponent = ({task,onDragStart,editTask}) => {
 
     return(
         <div
-        key={task.id}
-        onDragStart= { (event) => onDragStart(event,task.title)} 
-        draggable
-        className="draggable"
-        >
-          {changedTaskTitle}
-            <div className="editSection">
-                <button onClick={() => enableEdit()}>Edit</button>
-                {
-                    editStatus && (
-                        <>
-                            <input 
-                            placeholder={"Enter new value"}
-                            onChange= {(event) => changeTaskTitle(event)}
-                            />
-                            <button onClick={() => saveChanges()} >Save</button>
-                        </>
-                    )
-                }
+            key={task.id}
+            onDragStart= { (event) => onDragStart(event,task.title)} 
+            draggable
+            className="draggable"
+            >
+            {changedTaskTitle}
+                <div className="editSection">
+                    
+                    {
+                        editStatus ? (
+                            <>
+                                <input
+                                className="newInputField" 
+                                placeholder={"Enter new value"}
+                                onChange= {(event) => changeTaskTitle(event)}
+                                />
+                                <button className="saveButton" onClick={() => saveChanges()} >Save</button>
+                            </>
+                        ) : (
+                    <div className="editButtonContainer">
+                        <button onClick={() => enableEdit()}>Edit</button>
+                    </div>
+                        )
+                    }
+                </div>
+            
             </div>
-          
-        </div>
     )
 }
 

@@ -1,8 +1,35 @@
 .draggable{
-	width: 200px;
-	background-color: rgb(163, 163, 195);
-	margin: 5px auto;
-	line-height: 4em;
-	border-radius: 0 25px 25px 25px;
+	width: 235px;
+	background-color: rgb(212, 206, 206);
+	margin: 5px;
+	line-height: 3em;
+	border-radius: 25px;
 	font-size:15px;
+}
+.containerDrag{
+	background-color: blue;
+}
+.editButtonContainer button{
+	width: 80%;
+	height: 25px;
+	border-radius: 10px;
+	border: none;
+	background-color: blue;
+	cursor:pointer;
+}
+.editButtonContainer button:hover{
+	background-color: rgb(89, 89, 144);
+}
+
+.newInputField{
+	height: 20px;
+}
+.saveButton{
+	height: 25px;
+}
+
+@media screen and (max-width: 800px){
+   .draggable{
+	   width:unset;
+   }
 }
