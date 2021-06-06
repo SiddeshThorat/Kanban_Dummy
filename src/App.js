@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import DraggableComponent from './Components/DraggableComponent/DraggableComponent.component';
 import TaskBlockComponent from './Components/TaskBlock/TaskBlock.component';
+import ErrorBoundaries from './Components/Error-Boundaries/ErrorBoundaries.component';
 import { URL } from './Constants/url';
 
 class App extends React.Component {
@@ -95,6 +96,7 @@ class App extends React.Component {
     
     return (
       <div className="app">
+        <ErrorBoundaries>
         <div className="mainContainer">
           {
            Object.keys(tasks).map(
@@ -108,7 +110,8 @@ class App extends React.Component {
              />
              )
           }
-        </div>      
+        </div>   
+        </ErrorBoundaries>   
       </div>
     );
   }
