@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Dummy</title>
+    <style type="text/css">
+        body{
+            height: 100vh;
+            width:100w;
+            background-image: linear-gradient(to bottom right, #0052b0, #b340b3);
+        }
+        .app{
+            height:100%;
+            width:100%;
+        }
+        .container{
+            margin:10px;
+            height: 200px;
+            width:500px;
+            background-color: white;
+            display:flex;
+            flex-direction:column;
+            border-radius:25px;
+        }
+        .mainContainer{
+            display:flex;
+            flex-direction: row;
+        }
+        .header{
+            background-color:  #a19ea1;
+            height: 50px;
+            border-radius:20px 20px 0 0;
+            font-weight: bold;
+            font-size: 20px;
+            font-family: serif;
+            text-align:center;
+        }
+        .message{
+            height: 50px;
+            font-weight: lighter;
+            font-size: 20px;
+            font-family: serif;
+        }
+        @media screen and (max-width:800px){
+            .container,.header{
+                width: unset;
+            }
+            .mainContainer{
+                flex-direction: column
+            }
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="app">
+        <div class="mainContainer">
+            <div class="container">
+                <div class="header">
+                    Icebox
+                </div>
+                <div class="message">
+                    "You are offline, Please Go Online"
+                </div>
+            </div>
+            <div class="container">
+                <div class="header">
+                    Pending
+                </div>
+                <div class="message">
+                    "You are offline, Please Go Online"
+                </div>
+            </div>
+            <div class="container">
+                <div class="header">
+                    WIP
+                </div>
+                <div class="message">
+                    "You are offline, Please Go Online"
+                </div>
+            </div>
+            <div class="container">
+                <div class="header">
+                    Review
+                </div>
+                <div class="message">
+                    "You are offline, Please Go Online"
+                </div>
+            </div>
+            <div class="container">
+                <div class="header">
+                    Done
+                </div>
+                <div class="message">
+                    "You are offline, Please Go Online"
+                </div>
+            </div>
+              
+        </div>    
+    </div>
+</body>
+</html>
