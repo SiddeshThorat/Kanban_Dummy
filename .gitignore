@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# Important Note
+/imp
+
 # production
 /build
 
