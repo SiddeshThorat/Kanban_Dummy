@@ -18,7 +18,7 @@ const InputField = ({category,addTask}) => {
             <hr />
             <input 
             data-test='newTask' 
-            placeHolder="Add New Task"
+            placeholder="Add New Task"
             type="text" value={title} 
             onChange={(event) => onInputChange(event)}
             />
