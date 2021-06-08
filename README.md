@@ -6,6 +6,15 @@ Following is an implementation of dummy Kanban software which could be used for 
 - Dispaly five columns representing different categories of tasks that could be present.
 - Fetch operations are done using following API: https://my-json-server.typicode.com/SiddeshThorat/DummyServerForKanban/tasks
 
+## Build Using
+- React
+
+## Features 
+- Can add/ Remove tasks in task column block
+- Tasks are draggable and can be dragged and moved across columns
+- Website is a Progressive Web Application built upon SW
+- Offline working
+- Handles error using concept of Error boundaries in React
 
 ### Deployment: 
 Netlify(https://mystifying-lewin-bacb23.netlify.app/)
