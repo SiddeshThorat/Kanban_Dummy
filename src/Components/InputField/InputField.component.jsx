@@ -16,7 +16,7 @@ const InputField = ({category,addTask}) => {
     return(
         <div className="inputField">
             <hr />
-            <input type="text"value={title} onChange={(event) => onInputChange(event)}/>
+            <input type="text" value={title} onChange={(event) => onInputChange(event)}/>
             <input type="submit" onClick={() => {
                 addTask({title,category,id: uuid()})
                 resetTitle()

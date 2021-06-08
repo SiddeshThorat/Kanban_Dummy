@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Draggable component Snapshot testing of Draggable component 1`] = `
+<div
+  className="draggable"
+  draggable={true}
+  key="1"
+  onDragStart={[Function]}
+>
+  Dummy Task
+  <div
+    className="editSection"
+  >
+    <div
+      className="editButtonContainer"
+    >
+      <button
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -50,10 +50,10 @@ const DraggableComponent = ({task,onDragStart,editTask}) => {
                                 <button className="saveButton" onClick={() => saveChanges()} >Save</button>
                             </>
                         ) : (
-                    <div className="editButtonContainer">
-                        <button onClick={() => enableEdit()}>Edit</button>
-                    </div>
-                        )
+                            <div className="editButtonContainer">
+                                <button onClick={() => enableEdit()}>Edit</button>
+                            </div>
+                            )
                     }
                 </div>
             

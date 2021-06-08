@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing InputField component Snapshot testing of InputField component 1`] = `
+<div
+  className="inputField"
+>
+  <hr />
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <input
+    onClick={[Function]}
+    type="submit"
+  />
+</div>
+`;
