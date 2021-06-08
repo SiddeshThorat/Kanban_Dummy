@@ -14,8 +14,7 @@ class ErrorBoundaries extends React.Component{
         console.log("Error =>",error)
     }
     render(){
-        console.log("checking error boundaries")
-       if(this.state.hasError)
+        if(this.state.hasError)
           return (
               <h1>Something went wrong</h1>
           );
