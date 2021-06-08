@@ -15,6 +15,7 @@ exports[`Testing Draggable component Snapshot testing of Draggable component 1`]
       className="editButtonContainer"
     >
       <button
+        data-test="editButton"
         onClick={[Function]}
       >
         Edit
