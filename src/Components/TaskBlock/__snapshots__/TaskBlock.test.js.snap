@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing TaskBlockComponent component Snapshot testing of TaskBlockComponent component 1`] = `
+<div>
+  <div
+    className="containerIcebox"
+    onDragOver={[Function]}
+    onDrop={[Function]}
+  >
+    <Header>
+      Icebox
+    </Header>
+    <div
+      className="containerForDraggable"
+    />
+    <InputField
+      addTask={[Function]}
+      category="icebox"
+    />
+  </div>
+</div>
+`;
