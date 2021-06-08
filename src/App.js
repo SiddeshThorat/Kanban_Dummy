@@ -56,9 +56,9 @@ class App extends React.Component {
         tasks : [...this.state.tasks,newTask]
       })
     })
-    .catch(e => {
-    console.log(e);
-    });
+    .catch(err => {
+      throw err;
+    })
 
   }
   
@@ -85,7 +85,7 @@ class App extends React.Component {
     }
 
     this.state.tasks && this.state.tasks.forEach(task => {
-      tasks[task.category].push(
+      task.category && tasks[task.category].push(
         <DraggableComponent
         key={task.id} 
         task={task}
@@ -97,7 +97,6 @@ class App extends React.Component {
     
     return (
       <div className="app">
-        <ErrorBoundaries>
           <div className="mainContainer">
             {
             this.state.tasks.length ?  Object.keys(tasks).map(
@@ -112,8 +111,7 @@ class App extends React.Component {
                 />)
               ) : <Spinner />
             }
-          </div>   
-        </ErrorBoundaries>   
+          </div>    
       </div>
     );
   }
