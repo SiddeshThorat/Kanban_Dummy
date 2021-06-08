@@ -16,11 +16,20 @@ const InputField = ({category,addTask}) => {
     return(
         <div className="inputField">
             <hr />
-            <input type="text" value={title} onChange={(event) => onInputChange(event)}/>
-            <input type="submit" onClick={() => {
+            <input 
+            data-test='newTask' 
+            placeHolder="Add New Task"
+            type="text" value={title} 
+            onChange={(event) => onInputChange(event)}
+            />
+
+            <input
+            data-test='submitButton' 
+            type="submit" onClick={() => {
                 addTask({title,category,id: uuid()})
                 resetTitle()
-                }}/>
+                }}
+            />
         </div>
     )   
 }

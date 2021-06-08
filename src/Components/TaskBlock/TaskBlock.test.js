@@ -18,6 +18,17 @@ describe("Testing TaskBlockComponent component",() => {
     it("Snapshot testing of TaskBlockComponent component",() => {
         expect(shallow(<TaskBlockComponent {...props}/>)).toMatchSnapshot();
     })
+    it("Check if Header, containerForDraggable and InputField are rendered",() => {
+        const component = shallow(<TaskBlockComponent {...props}/>)
+        const header = component.find('Header')
+        const containerForDraggable = component.find('.containerForDraggable');
+        const inputField = component.find('InputField');
+
+        expect(header.length).toEqual(1);
+        expect(containerForDraggable.length).toEqual(1);
+        expect(inputField.length).toEqual(1);
+
+    })
 })
 
 

@@ -6,11 +6,14 @@ exports[`Testing InputField component Snapshot testing of InputField component 1
 >
   <hr />
   <input
+    data-test="newTask"
     onChange={[Function]}
+    placeHolder="Add New Task"
     type="text"
     value=""
   />
   <input
+    data-test="submitButton"
     onClick={[Function]}
     type="submit"
   />
